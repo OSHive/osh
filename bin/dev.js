@@ -34,7 +34,6 @@ exports.run = () => {
           `webpack.config.${isLib ? "lib." : ""}js`
         ),
         "-w",
-        "--color",
       ],
       {
         stdio: "pipe",
