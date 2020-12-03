@@ -24,8 +24,9 @@ exports.run = () => {
     }
 
     const p = spawn(
-      path.resolve(__dirname, "..", "node_modules", ".bin", "webpack"),
+      "npx",
       [
+        "webpack",
         "-c",
         path.resolve(
           __dirname,
