@@ -4,8 +4,7 @@ const path = require("path");
 const fs = require("fs");
 const spawn = require("child_process").spawn;
 
-exports.usage =
-  "Starts building your lambdas and libs with webpack in watch mode";
+exports.usage = "Starts building your lambda APIs with webpack in watch mode";
 
 exports.run = () => {
   let entries = fs.readdirSync(".");
@@ -15,10 +14,9 @@ exports.run = () => {
 
   entries.forEach((e) => {
     const cwd = path.join(process.cwd(), e);
-    const isLib = e.endsWith("-lib");
     const isApi = fs.existsSync(path.join(cwd, "functions"));
 
-    if (!isLib && !isApi) {
+    if (!isApi) {
       console.log(`Skipping ${e}...`);
       return;
     }
@@ -28,11 +26,7 @@ exports.run = () => {
       [
         "webpack",
         "-c",
-        path.resolve(
-          __dirname,
-          "..",
-          `webpack.config.${isLib ? "lib." : ""}js`
-        ),
+        path.resolve(__dirname, "..", `webpack.config.js`),
         "-w",
       ],
       {

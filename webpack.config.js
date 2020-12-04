@@ -40,6 +40,10 @@ module.exports = {
         ],
         exclude: /node_modules/,
       },
+      {
+        test: /\.txt$/,
+        use: "raw-loader",
+      },
     ],
   },
   plugins: [
