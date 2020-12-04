@@ -12,6 +12,7 @@ module.exports = {
   externals: {
     "aws-sdk": "aws-sdk",
   },
+  mode: process.env.OSH_ENV,
   module: {
     rules: [
       {

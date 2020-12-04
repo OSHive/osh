@@ -25,6 +25,7 @@ module.exports = {
   target: "node",
   entry,
   output,
+  mode: process.env.OSH_ENV,
   externals: {
     "aws-sdk": "aws-sdk",
   },
