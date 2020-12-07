@@ -56,9 +56,6 @@ module.exports = {
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-    alias: {
-      ssr: path.resolve(__dirname, "client", ".next", "serverless", "pages"),
-    },
   },
   devtool: "inline-source-map",
 };
