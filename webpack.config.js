@@ -57,9 +57,4 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  devtool: "inline-source-map",
 };
-
-if (process.env.OSH_ENV === "production") {
-  delete exports.devtool;
-}
