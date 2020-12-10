@@ -1,15 +1,6 @@
-const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
 const dotenv = require("dotenv");
-
-const files = fs.readdirSync(path.join(process.cwd(), "functions"));
-
-const entry = {};
-
-files.forEach((f) => {
-  entry[f.replace(/\.(t|j)sx?$/, "")] = `./functions/${f}`;
-});
 
 const dotenvConfig = dotenv.config({
   path: `../.env.${process.env.NODE_ENV}`,
@@ -23,9 +14,8 @@ const output = {
 
 module.exports = {
   target: "node",
-  entry,
   output,
-  mode: process.env.OSH_ENV,
+  mode: process.env.OSH_ENV || process.env.NODE_ENV,
   externals: {
     "aws-sdk": "aws-sdk",
   },
